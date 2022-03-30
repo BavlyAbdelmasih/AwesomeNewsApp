@@ -1,7 +1,8 @@
 import {View, Text, FlatList} from 'react-native';
-import React from 'react';
+import React, {useEffect} from 'react';
 import NewsListItem from '../../components/NewsListItem';
 import {NewsItem} from '../../types';
+import getNewList from '../../services/api/getNewsList';
 const dummyNewsItem: NewsItem = {
   source: {
     id: 'engadget',
