@@ -1,20 +1,20 @@
-import { SafeAreaView, StyleSheet} from 'react-native'
-import React from 'react'
-import News from './src/screens/News'
+import {SafeAreaView, StyleSheet} from 'react-native';
+import React from 'react';
+import News from './src/screens/News';
 
 const App = () => {
   return (
     <SafeAreaView style={styles.containerStyle}>
       <News />
     </SafeAreaView>
-  )
-}
+  );
+};
 
-export default App
+export default App;
 
 const styles = StyleSheet.create({
-  containerStyle:{
-    flex:1,
-    backgroundColor : "white"
-  }
-})
+  containerStyle: {
+    flex: 1,
+    backgroundColor: 'white',
+  },
+});
