@@ -1,10 +1,11 @@
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native'
+import { SafeAreaView, StyleSheet} from 'react-native'
 import React from 'react'
+import News from './src/screens/News'
 
 const App = () => {
   return (
     <SafeAreaView style={styles.containerStyle}>
-      <Text>App</Text>
+      <News />
     </SafeAreaView>
   )
 }
