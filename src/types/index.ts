@@ -8,6 +8,10 @@ export type NewsItem = {
   description: string;
   url: string;
   urlToImage: string;
-  publishedAt: Date;
+  publishedAt: string;
   content: string;
+};
+
+export type ApiResponse = {
+  data: {status: string; totalResults: number; articles: NewsItem[]};
 };

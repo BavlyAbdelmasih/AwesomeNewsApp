@@ -20,9 +20,7 @@ const NewsListItem = ({item}: Props) => {
           <Text style={styles.source}>{item.source.name}</Text>
           <Text style={styles.title}>{item.title}</Text>
 
-          <Text style={styles.time}>
-            {item.publishedAt.getHours().toString()} hours from now
-          </Text>
+          <Text style={styles.time}>{item.publishedAt}</Text>
         </View>
       </ImageBackground>
     </View>
