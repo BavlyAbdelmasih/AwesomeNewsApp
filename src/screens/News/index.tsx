@@ -1,4 +1,4 @@
-import {View, Text} from 'react-native';
+import {View, Text, FlatList} from 'react-native';
 import React from 'react';
 import NewsListItem from '../../components/NewsListItem';
 import {NewsItem} from '../../types';
@@ -19,10 +19,21 @@ const dummyNewsItem: NewsItem = {
   content:
     "Setting up an iPhone to automatically install the latest version of iOS doesn't mean you'll get the update right away. Apple typically takes a few weeks to roll out auto-updates to everyone. Crai… [+1151 chars]",
 };
+
+const dummyarticlesList: NewsItem[] = [
+  dummyNewsItem,
+  dummyNewsItem,
+  dummyNewsItem,
+  dummyNewsItem,
+];
 const News = () => {
   return (
     <View>
-      <NewsListItem item={dummyNewsItem} />
+      <FlatList
+        keyExtractor={item => `${Math.random()}${item.source.id}`}
+        data={dummyarticlesList}
+        renderItem={NewsListItem}
+      />
     </View>
   );
 };
