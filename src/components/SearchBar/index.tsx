@@ -1,6 +1,7 @@
 import {TextInput, View} from 'react-native';
 import React, {useState} from 'react';
 import styles from './styles';
+import Icon from 'react-native-vector-icons/FontAwesome';
 interface Props {
   onInputChange: (value: string) => void;
 }
@@ -17,6 +18,7 @@ const SearchBar = ({onInputChange}: Props) => {
           onInputChange(value.trim());
         }}
       />
+      <Icon name="search" size={15} color="grey" />
     </View>
   );
 };
