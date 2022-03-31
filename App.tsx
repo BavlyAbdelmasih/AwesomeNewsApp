@@ -3,22 +3,22 @@ import React from 'react';
 import News from './src/screens/News';
 import {NavigationContainer} from '@react-navigation/native';
 import Tabs from './src/navigation/Tabs';
+import WithThemingProvider from './Theming/WithThemingProvider';
 
 const App = () => {
   return (
-    <NavigationContainer>
-      <View style={styles.containerStyle}>
+    <View style={styles.containerStyle}>
+      <NavigationContainer>
         <Tabs />
-      </View>
-    </NavigationContainer>
+      </NavigationContainer>
+    </View>
   );
 };
 
-export default App;
+export default WithThemingProvider(App);
 
 const styles = StyleSheet.create({
   containerStyle: {
     flex: 1,
-    backgroundColor: 'rgb(214,214,214)',
   },
 });

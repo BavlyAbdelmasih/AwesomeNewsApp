@@ -26,13 +26,12 @@ export default StyleSheet.create({
     justifyContent: 'space-evenly',
     margin: 10,
   },
-  source: {color: 'white', fontWeight: '900', fontSize: 12},
+  source: {fontWeight: '900', fontSize: 12},
   title: {
-    color: 'white',
     fontWeight: '900',
     paddingRight: 50,
     textShadowColor: 'white',
     textShadowRadius: 0.7,
   },
-  time: {color: 'white', fontWeight: '400', fontStyle: 'italic'},
+  time: {fontWeight: '400', fontStyle: 'italic'},
 });

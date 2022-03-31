@@ -1,5 +1,6 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import React from 'react';
+import React, {useContext} from 'react';
+import {ThemeContext} from '../../../Theming/ThemeContextProvider';
 import TabBarIcon from '../../components/TabBarIcon';
 
 import Settings from '../../screens/Settings';
@@ -8,10 +9,15 @@ import NewsStack from '../NewsStack';
 const Tab = createBottomTabNavigator();
 
 function Tabs() {
+  const themeContext = useContext(ThemeContext);
   return (
     <Tab.Navigator
       initialRouteName="News"
-      screenOptions={{headerShown: false, tabBarShowLabel: false}}>
+      screenOptions={{
+        headerShown: false,
+        tabBarShowLabel: false,
+        tabBarStyle: {backgroundColor: themeContext.theme.backgroundColor},
+      }}>
       <Tab.Screen
         name="News"
         component={NewsStack}

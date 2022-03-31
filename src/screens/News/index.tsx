@@ -1,5 +1,5 @@
 import {View, FlatList, RefreshControl} from 'react-native';
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import NewsListItem from '../../components/NewsListItem';
 
 import useGetNews from '../../hooks/useGetNews';
@@ -8,11 +8,14 @@ import SearchBar from '../../components/SearchBar';
 import {NewsItem} from '../../types';
 import styles from './styles';
 import {useNavigation} from '@react-navigation/native';
+import {ThemeContext} from '../../../Theming/ThemeContextProvider';
 
 const News = () => {
   const {data, isLoading, refreshing, onRefresh} = useGetNews();
   const [filteredData, setFilteredData] = useState<any>([]);
   const navigator = useNavigation();
+  const themeContext = useContext(ThemeContext);
+
   useEffect(() => {
     setFilteredData(data);
   }, [data]);
@@ -37,7 +40,11 @@ const News = () => {
 
   {
     return (
-      <View style={styles.containerStyle}>
+      <View
+        style={[
+          styles.containerStyle,
+          {backgroundColor: themeContext.theme.backgroundColor},
+        ]}>
         <SearchBar onInputChange={searchFilterFunction} />
 
         {isLoading ? (
