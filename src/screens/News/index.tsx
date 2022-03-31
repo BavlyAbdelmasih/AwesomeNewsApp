@@ -51,7 +51,7 @@ const News = () => {
                 <NewsListItem
                   item={item.item}
                   onClick={() => {
-                    navigator.navigate('Details', {params: {item}});
+                    navigator.navigate('Details', {item});
                   }}
                 />
               );

@@ -1,13 +1,12 @@
 import {View, Text, Image, TouchableOpacity} from 'react-native';
-import React, {useEffect} from 'react';
+import React from 'react';
 import styles from './styles';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {useNavigation} from '@react-navigation/native';
 
 const Details = ({route}: any) => {
   const navigator = useNavigation();
-  const {_, params} = route.params;
-  const {item} = params;
+  const {_, item} = route.params;
 
   return (
     <View>
