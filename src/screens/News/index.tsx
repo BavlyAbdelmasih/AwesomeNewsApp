@@ -6,13 +6,14 @@ import useGetNews from '../../hooks/useGetNews';
 import Loading from '../../components/Loading';
 import SearchBar from '../../components/SearchBar';
 import {NewsItem} from '../../types';
+import styles from './styles';
 
 const News = () => {
   const {data, isLoading, refreshing, onRefresh} = useGetNews();
   const [filteredData, setFilteredData] = useState<any>([]);
   useEffect(() => {
     setFilteredData(data);
-  }, []);
+  }, [data]);
 
   //searching function
   const searchFilterFunction = (value: string) => {
@@ -34,7 +35,7 @@ const News = () => {
 
   {
     return (
-      <View>
+      <View style={styles.containerStyle}>
         <SearchBar onInputChange={searchFilterFunction} />
 
         {isLoading ? (
