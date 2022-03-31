@@ -15,6 +15,6 @@ export default App;
 const styles = StyleSheet.create({
   containerStyle: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: 'rgb(214,214,214)',
   },
 });
