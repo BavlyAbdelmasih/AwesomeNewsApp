@@ -7,13 +7,17 @@ const Tab = createBottomTabNavigator();
 
 function Tabs() {
   return (
-    <Tab.Navigator screenOptions={{headerShown: false, tabBarShowLabel: false}}>
+    <Tab.Navigator
+      initialRouteName="Home"
+      screenOptions={{headerShown: false, tabBarShowLabel: false}}>
       <Tab.Screen
         name="Home"
         component={News}
         options={{
           tabBarIcon: ({focused, color, size}) => {
-            return <TabBarIcon iconName="home" focused={focused} />;
+            return (
+              <TabBarIcon iconName="home" focused={focused} title="Home" />
+            );
           },
         }}
       />
@@ -22,7 +26,9 @@ function Tabs() {
         component={News}
         options={{
           tabBarIcon: ({focused, color, size}) => {
-            return <TabBarIcon iconName="gear" focused={focused} />;
+            return (
+              <TabBarIcon iconName="gear" focused={focused} title="Settings" />
+            );
           },
         }}
       />
