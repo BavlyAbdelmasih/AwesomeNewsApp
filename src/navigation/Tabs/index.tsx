@@ -1,6 +1,7 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import React from 'react';
 import TabBarIcon from '../../components/TabBarIcon';
+import Details from '../../screens/Details';
 import News from '../../screens/News';
 
 const Tab = createBottomTabNavigator();
@@ -23,7 +24,7 @@ function Tabs() {
       />
       <Tab.Screen
         name="Settings"
-        component={News}
+        component={Details}
         options={{
           tabBarIcon: ({focused, color, size}) => {
             return (
