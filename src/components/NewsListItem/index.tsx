@@ -2,6 +2,7 @@ import {View, Text, ImageBackground, ImagePropTypes} from 'react-native';
 import React from 'react';
 import styles from './styles';
 import {NewsItem} from '../../types';
+import FastImage from 'react-native-fast-image';
 
 interface Props {
   item: NewsItem;
@@ -9,12 +10,12 @@ interface Props {
 const NewsListItem = ({item}: Props) => {
   return (
     <View style={styles.containerStyle}>
-      <ImageBackground
+      <FastImage
         source={{
           uri: item.urlToImage,
         }}
-        style={styles.imageBg}
-        imageStyle={styles.imageStyle}>
+        style={[styles.imageBg, styles.imageStyle]}
+        resizeMode="cover">
         <View style={styles.overlay} />
         <View style={styles.textContainer}>
           <Text style={styles.source}>{item.source.name}</Text>
@@ -22,7 +23,7 @@ const NewsListItem = ({item}: Props) => {
 
           <Text style={styles.time}>{item.publishedAt}</Text>
         </View>
-      </ImageBackground>
+      </FastImage>
     </View>
   );
 };

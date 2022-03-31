@@ -9,7 +9,6 @@ export default StyleSheet.create({
     height: 170,
     marginHorizontal: 5,
     marginVertical: 10,
-    padding: 10,
   },
   imageStyle: {borderRadius: 20},
   overlay: {
@@ -25,6 +24,7 @@ export default StyleSheet.create({
   textContainer: {
     flex: 1,
     justifyContent: 'space-evenly',
+    margin: 10,
   },
   source: {color: 'white', fontWeight: '900', fontSize: 12},
   title: {
