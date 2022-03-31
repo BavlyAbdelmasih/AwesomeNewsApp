@@ -14,6 +14,7 @@ const NewsListItem = ({item}: Props) => {
         source={{
           uri: item.urlToImage,
         }}
+        
         style={[styles.imageBg, styles.imageStyle]}
         resizeMode="cover">
         <View style={styles.overlay} />

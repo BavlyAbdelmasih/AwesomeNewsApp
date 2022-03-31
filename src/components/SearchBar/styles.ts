@@ -5,7 +5,6 @@ export default StyleSheet.create({
     width: '85%',
     backgroundColor: 'white',
     height: 40,
-    flex: 1,
     alignSelf: 'center',
     borderRadius: 20,
     justifyContent: 'center',
