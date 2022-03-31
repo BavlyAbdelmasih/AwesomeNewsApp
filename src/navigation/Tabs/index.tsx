@@ -3,17 +3,18 @@ import React from 'react';
 import TabBarIcon from '../../components/TabBarIcon';
 import Details from '../../screens/Details';
 import News from '../../screens/News';
+import NewsStack from '../NewsStack';
 
 const Tab = createBottomTabNavigator();
 
 function Tabs() {
   return (
     <Tab.Navigator
-      initialRouteName="Home"
+      initialRouteName="News"
       screenOptions={{headerShown: false, tabBarShowLabel: false}}>
       <Tab.Screen
-        name="Home"
-        component={News}
+        name="News"
+        component={NewsStack}
         options={{
           tabBarIcon: ({focused, color, size}) => {
             return (
