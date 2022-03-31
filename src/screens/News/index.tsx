@@ -7,10 +7,12 @@ import Loading from '../../components/Loading';
 import SearchBar from '../../components/SearchBar';
 import {NewsItem} from '../../types';
 import styles from './styles';
+import {useNavigation} from '@react-navigation/native';
 
 const News = () => {
   const {data, isLoading, refreshing, onRefresh} = useGetNews();
   const [filteredData, setFilteredData] = useState<any>([]);
+  const navigator = useNavigation();
   useEffect(() => {
     setFilteredData(data);
   }, [data]);
@@ -44,7 +46,16 @@ const News = () => {
           <FlatList
             keyExtractor={item => `${Math.random()}${item.source.id}`}
             data={filteredData}
-            renderItem={NewsListItem}
+            renderItem={item => {
+              return (
+                <NewsListItem
+                  item={item.item}
+                  onClick={() => {
+                    navigator.navigate('Details', {params: {item}});
+                  }}
+                />
+              );
+            }}
             refreshControl={
               <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
             }

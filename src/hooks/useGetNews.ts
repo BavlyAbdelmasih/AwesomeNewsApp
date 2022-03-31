@@ -36,6 +36,10 @@ const useGetNews = () => {
         setIsLoading(false);
       },
     );
+
+    return () => {
+      setData(undefined);
+    };
   }, []);
 
   const onRefresh = () => {

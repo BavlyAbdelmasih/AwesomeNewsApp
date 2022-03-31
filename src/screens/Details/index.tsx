@@ -1,32 +1,32 @@
-import {View, Text, Image} from 'react-native';
-import React from 'react';
+import {View, Text, Image, TouchableOpacity} from 'react-native';
+import React, {useEffect} from 'react';
 import styles from './styles';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {NewsItem} from '../../types';
+import {useNavigation} from '@react-navigation/native';
 
-interface Props {
-  item: NewsItem;
-}
+const Details = ({route}: any) => {
+  const navigator = useNavigation();
+  const {_, params} = route.params;
+  const {item} = params;
 
-const Details = ({item}: Props) => {
   return (
     <View>
       <View style={styles.imageContainer}>
         <Image
           style={styles.image}
           source={{
-            uri: item.urlToImage,
+            uri: item?.item?.urlToImage,
           }}
           resizeMode="cover"
         />
       </View>
       <View style={styles.headerRow}>
         <View style={styles.titleContainer}>
-          <Text style={styles.title}>{item.title}</Text>
+          <Text style={styles.title}>{item.item.title}</Text>
         </View>
 
         <View style={styles.authorContainer}>
-          <Text style={styles.author}>{item.author}</Text>
+          <Text style={styles.author}>{item.item.source.name}</Text>
         </View>
       </View>
       <View style={styles.descriptionHeader}>
@@ -43,11 +43,18 @@ const Details = ({item}: Props) => {
       </View>
 
       <View style={styles.descriptionContainer}>
-        <Text style={styles.description}>{item.description}</Text>
+        <Text style={styles.description}>{item.item.description}</Text>
       </View>
-      <View style={styles.leftIcon}>
-        <Icon name="angle-left" size={30} color="green" />
-      </View>
+      <TouchableOpacity
+        style={styles.leftIcon}
+        onPress={() => navigator.goBack()}>
+        <Icon
+          name="angle-left"
+          size={30}
+          color="green"
+          onPress={() => navigator.goBack()}
+        />
+      </TouchableOpacity>
     </View>
   );
 };

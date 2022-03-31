@@ -25,7 +25,7 @@ function Tabs() {
       />
       <Tab.Screen
         name="Settings"
-        component={Details}
+        component={News}
         options={{
           tabBarIcon: ({focused, color, size}) => {
             return (
