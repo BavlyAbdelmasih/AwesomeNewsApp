@@ -6,11 +6,12 @@ import Tabs from './src/navigation/Tabs';
 import WithThemingProvider from './Theming/WithThemingProvider';
 import {Provider} from 'react-redux';
 import store from './src/redux/store';
+import linking from './src/navigation/linking';
 
 const App = () => {
   return (
     <View style={styles.containerStyle}>
-      <NavigationContainer>
+      <NavigationContainer linking={linking}>
         <Provider store={store}>
           <Tabs />
         </Provider>

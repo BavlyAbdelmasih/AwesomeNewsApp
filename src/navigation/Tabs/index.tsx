@@ -15,14 +15,14 @@ function Tabs() {
 
   return (
     <Tab.Navigator
-      initialRouteName="News"
+      initialRouteName="NewsStack"
       screenOptions={{
         headerShown: false,
         tabBarShowLabel: false,
         tabBarStyle: {backgroundColor: themeContext.theme.backgroundColor},
       }}>
       <Tab.Screen
-        name="News"
+        name="NewsStack"
         component={NewsStack}
         options={{
           tabBarIcon: ({focused, color, size}) => {
