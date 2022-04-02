@@ -3,9 +3,11 @@ import React from 'react';
 import styles from './styles';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {useNavigation} from '@react-navigation/native';
+import {useTranslation} from 'react-i18next';
 
 const Details = ({route}: any) => {
   const navigator = useNavigation();
+  const {t, i18n} = useTranslation();
   const {_, item} = route.params;
 
   return (
@@ -37,7 +39,7 @@ const Details = ({route}: any) => {
             textShadowOffset: {height: 10, width: 10},
             textShadowColor: 'black',
           }}>
-          Description
+          {t('Description')}
         </Text>
       </View>
 

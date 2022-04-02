@@ -1,5 +1,6 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import React, {useContext} from 'react';
+import {useTranslation} from 'react-i18next';
 import {ThemeContext} from '../../../Theming/ThemeContextProvider';
 import TabBarIcon from '../../components/TabBarIcon';
 
@@ -10,6 +11,8 @@ const Tab = createBottomTabNavigator();
 
 function Tabs() {
   const themeContext = useContext(ThemeContext);
+  const {t, i18n} = useTranslation();
+
   return (
     <Tab.Navigator
       initialRouteName="News"
@@ -24,7 +27,7 @@ function Tabs() {
         options={{
           tabBarIcon: ({focused, color, size}) => {
             return (
-              <TabBarIcon iconName="home" focused={focused} title="Home" />
+              <TabBarIcon iconName="home" focused={focused} title={t('Home')} />
             );
           },
         }}
@@ -35,7 +38,11 @@ function Tabs() {
         options={{
           tabBarIcon: ({focused, color, size}) => {
             return (
-              <TabBarIcon iconName="gear" focused={focused} title="Settings" />
+              <TabBarIcon
+                iconName="gear"
+                focused={focused}
+                title={t('Settings')}
+              />
             );
           },
         }}
