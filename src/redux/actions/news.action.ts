@@ -3,7 +3,7 @@ import {NewsItem} from '../../types';
 const getNews = () => {
   return {
     type: 'GetAllNews',
-    payload: null,
+    payload: '',
   };
 };
 

@@ -11,6 +11,7 @@ const newsReducer = (state: NewsItem[] = [], action: any) => {
       return [...state];
 
     default:
+      return state;
       break;
   }
 };

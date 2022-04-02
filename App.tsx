@@ -4,12 +4,16 @@ import News from './src/screens/News';
 import {NavigationContainer} from '@react-navigation/native';
 import Tabs from './src/navigation/Tabs';
 import WithThemingProvider from './Theming/WithThemingProvider';
+import {Provider} from 'react-redux';
+import store from './src/redux/store';
 
 const App = () => {
   return (
     <View style={styles.containerStyle}>
       <NavigationContainer>
-        <Tabs />
+        <Provider store={store}>
+          <Tabs />
+        </Provider>
       </NavigationContainer>
     </View>
   );
