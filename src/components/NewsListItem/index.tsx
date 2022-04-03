@@ -9,7 +9,7 @@ import React, {useContext} from 'react';
 import styles from './styles';
 import {NewsItem} from '../../types';
 import FastImage from 'react-native-fast-image';
-import {ThemeContext} from '../../../Theming/ThemeContextProvider';
+import {ThemeContext} from '../../Theming/ThemeContextProvider';
 
 interface Props {
   item: NewsItem;

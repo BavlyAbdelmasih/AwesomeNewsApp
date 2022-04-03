@@ -1,9 +1,9 @@
 import {StyleSheet, Text, View, Switch, Pressable} from 'react-native';
 import React, {useContext, useState} from 'react';
-import {ThemeContext} from '../../../Theming/ThemeContextProvider';
 import {useTranslation} from 'react-i18next';
 import '../../i18n/i18n';
 import styles from './styles';
+import {ThemeContext} from '../../Theming/ThemeContextProvider';
 
 const Settings = () => {
   const [isEnabled, setIsEnabled] = useState<boolean>(false);

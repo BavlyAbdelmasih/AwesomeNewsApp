@@ -5,10 +5,9 @@ import NewsListItem from '../../components/NewsListItem';
 import useGetNews from '../../hooks/useGetNews';
 import Loading from '../../components/Loading';
 import SearchBar from '../../components/SearchBar';
-import {NewsItem} from '../../types';
 import styles from './styles';
 import {useNavigation} from '@react-navigation/native';
-import {ThemeContext} from '../../../Theming/ThemeContextProvider';
+import {ThemeContext} from '../../Theming/ThemeContextProvider';
 
 const News = () => {
   const {data, isLoading, refreshing, onRefresh} = useGetNews();

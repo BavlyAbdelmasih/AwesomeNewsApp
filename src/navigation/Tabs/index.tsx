@@ -1,10 +1,10 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import React, {useContext} from 'react';
 import {useTranslation} from 'react-i18next';
-import {ThemeContext} from '../../../Theming/ThemeContextProvider';
 import TabBarIcon from '../../components/TabBarIcon';
 
 import Settings from '../../screens/Settings';
+import {ThemeContext} from '../../Theming/ThemeContextProvider';
 import NewsStack from '../NewsStack';
 
 const Tab = createBottomTabNavigator();

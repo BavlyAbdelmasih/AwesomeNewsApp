@@ -4,7 +4,7 @@ import styles from './styles';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {useNavigation} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
-import {ThemeContext} from '../../../Theming/ThemeContextProvider';
+import {ThemeContext} from '../../Theming/ThemeContextProvider';
 
 const Details = ({route}: any) => {
   const navigator = useNavigation();
