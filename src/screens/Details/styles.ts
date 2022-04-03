@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import {colors} from '../../constants/constants';
 
 export default StyleSheet.create({
   container: {
@@ -22,7 +23,7 @@ export default StyleSheet.create({
   },
 
   authorContainer: {
-    backgroundColor: 'green',
+    backgroundColor: colors.green,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 30,
@@ -32,7 +33,7 @@ export default StyleSheet.create({
     right: 10,
   },
   author: {
-    color: 'white',
+    color: colors.white,
     fontWeight: 'bold',
     fontSize: 10,
   },
@@ -41,7 +42,7 @@ export default StyleSheet.create({
     lineHeight: 20,
   },
   descriptionContainer: {
-    backgroundColor: 'white',
+    backgroundColor: colors.white,
   },
   description: {
     fontSize: 17,
@@ -56,7 +57,7 @@ export default StyleSheet.create({
     position: 'absolute',
     left: 30,
     top: 30,
-    backgroundColor: 'rgb(214,214,214)',
+    backgroundColor: colors.lightGrey,
     width: 30,
     height: 30,
     borderRadius: 15,

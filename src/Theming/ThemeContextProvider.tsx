@@ -1,27 +1,5 @@
 import React, {createContext, useState} from 'react';
-
-const ThemeMode = {
-  dark: 0,
-  light: 1,
-};
-const Themes = [
-  {
-    backgroundColor: '#121212',
-    textColor: 'yellow',
-    tabBarBackground: 'rgb(241,241,241)',
-    primaryColor: 'gray',
-    secondaryColor: '#121212',
-    secondaryTextColor: 'yellow',
-  },
-  {
-    backgroundColor: 'rgb(241,241,241)',
-    textColor: 'white',
-    tabBarBackground: 'rgb(241,241,241)',
-    primaryColor: 'rgb(241,241,241)',
-    secondaryColor: 'white',
-    secondaryTextColor: 'black',
-  },
-];
+import {ThemeMode, Themes} from '../constants/constants';
 
 const ThemeContext = createContext({
   theme: Themes[ThemeMode.light],

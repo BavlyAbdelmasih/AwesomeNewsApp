@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import {colors} from '../../constants/constants';
 
 export default StyleSheet.create({
   containerStyle: {
@@ -13,7 +14,7 @@ export default StyleSheet.create({
   imageStyle: {borderRadius: 20},
   overlay: {
     flex: 1,
-    backgroundColor: 'black',
+    backgroundColor: colors.black,
     opacity: 0.5,
     borderRadius: 20,
     width: '100%',
@@ -30,7 +31,7 @@ export default StyleSheet.create({
   title: {
     fontWeight: '900',
     paddingRight: 50,
-    textShadowColor: 'white',
+    textShadowColor: colors.white,
     textShadowRadius: 0.7,
   },
   time: {fontWeight: '400', fontStyle: 'italic'},

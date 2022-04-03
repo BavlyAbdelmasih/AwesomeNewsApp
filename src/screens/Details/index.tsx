@@ -5,6 +5,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import {useNavigation} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
 import {ThemeContext} from '../../Theming/ThemeContextProvider';
+import {colors} from '../../constants/constants';
 
 const Details = ({route}: any) => {
   const navigator = useNavigation();
@@ -57,7 +58,7 @@ const Details = ({route}: any) => {
             fontSize: 18,
             textShadowRadius: 10,
             textShadowOffset: {height: 10, width: 10},
-            textShadowColor: 'black',
+            textShadowColor: colors.black,
             color: themeContext.theme.secondaryTextColor,
           }}>
           {t('Description')}
@@ -83,7 +84,7 @@ const Details = ({route}: any) => {
         <Icon
           name="angle-left"
           size={30}
-          color="green"
+          color={colors.green}
           onPress={() => navigator.goBack()}
         />
       </TouchableOpacity>

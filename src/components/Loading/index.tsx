@@ -1,5 +1,6 @@
 import React from 'react';
 import {ActivityIndicator, StyleSheet, ViewStyle} from 'react-native';
+import {colors} from '../../constants/constants';
 
 interface Props {
   style?: ViewStyle;
@@ -10,7 +11,7 @@ const Loading: React.FC<Props> = ({style, ...props}) => {
   return (
     <ActivityIndicator
       style={[styles.containerStyle]}
-      color="black"
+      color={colors.darkGrey}
       size={30}
       {...props}
     />

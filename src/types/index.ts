@@ -16,3 +16,12 @@ export type NewsItem = {
 export type ApiResponse = {
   data: {status: string; totalResults: number; articles: NewsItem[]};
 };
+
+export type ThemeColors = {
+  backgroundColor: string;
+  textColor: string;
+  tabBarBackground: string;
+  primaryColor: string;
+  secondaryColor: string;
+  secondaryTextColor: string;
+};
