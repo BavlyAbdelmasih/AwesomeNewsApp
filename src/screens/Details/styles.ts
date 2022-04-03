@@ -4,9 +4,7 @@ export default StyleSheet.create({
   container: {
     flex: 1,
   },
-  imageContainer: {
-    backgroundColor: 'white',
-  },
+
   image: {
     width: '100%',
     height: 250,
@@ -17,7 +15,6 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingVertical: 10,
-    backgroundColor: 'white',
   },
   titleContainer: {
     width: '60%',
