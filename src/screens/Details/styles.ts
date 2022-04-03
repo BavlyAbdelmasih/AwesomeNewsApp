@@ -15,14 +15,13 @@ export default StyleSheet.create({
   },
   headerRow: {
     flexDirection: 'row',
-    justifyContent: 'center',
-    paddingHorizontal: 55,
-    paddingTop: 10,
+    alignItems: 'center',
+    paddingVertical: 10,
     backgroundColor: 'white',
-    paddingBottom: 10,
   },
   titleContainer: {
-    marginRight: 100,
+    width: '60%',
+    marginLeft: 30,
   },
 
   authorContainer: {
@@ -30,12 +29,15 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 30,
-    padding: 5,
-    height: 40,
+    padding: 2,
+    height: 25,
+    position: 'absolute',
+    right: 10,
   },
   author: {
     color: 'white',
     fontWeight: 'bold',
+    fontSize: 10,
   },
   title: {
     fontWeight: '900',

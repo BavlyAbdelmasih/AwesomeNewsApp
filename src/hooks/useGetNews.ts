@@ -1,11 +1,16 @@
 import {useCallback, useEffect, useState} from 'react';
+import {useDispatch} from 'react-redux';
+import {addNews} from '../redux/actions/news.action';
 import getNewList from '../services/api/getNewsList';
 import {NewsItem} from '../types';
 
 const useGetNews = () => {
-  const [data, setData] = useState<NewsItem[]>();
+  const [data, setData] = useState<NewsItem[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [refreshing, setRefreshing] = useState<boolean>(false);
+
+  const dispatch = useDispatch();
+
   const fetchData = useCallback(
     async (
       onSucess: (data: NewsItem[]) => void,
@@ -15,6 +20,8 @@ const useGetNews = () => {
       try {
         const response = await getNewList();
         onSucess(response.data.articles);
+
+        dispatch(addNews(response.data.articles));
       } catch (error) {
         onError(error);
       } finally {
@@ -38,7 +45,7 @@ const useGetNews = () => {
     );
 
     return () => {
-      setData(undefined);
+      setData([]);
     };
   }, []);
 
