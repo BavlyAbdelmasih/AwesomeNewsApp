@@ -4,7 +4,9 @@ const config = {
   screens: {
     NewsStack: {
       screens: {
-        Home: 'home',
+        Home: {
+          path: 'home/:value',
+        },
         Details: 'details',
       },
     },

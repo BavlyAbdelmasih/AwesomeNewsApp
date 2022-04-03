@@ -8,10 +8,11 @@ import SearchBar from '../../components/SearchBar';
 import styles from './styles';
 import {useNavigation} from '@react-navigation/native';
 import {ThemeContext} from '../../Theming/ThemeContextProvider';
+import {NewsItem} from '../../types';
 
-const News = () => {
+const News = ({route}: any) => {
   const {data, isLoading, refreshing, onRefresh} = useGetNews();
-  const [filteredData, setFilteredData] = useState<any>([]);
+  const [filteredData, setFilteredData] = useState<NewsItem[]>([]);
   const navigator = useNavigation();
   const themeContext = useContext(ThemeContext);
 
@@ -22,7 +23,6 @@ const News = () => {
   //searching function
   const searchFilterFunction = (value: string) => {
     console.log(value);
-
     if (value) {
       const newData = data?.filter(item => {
         const itemData = item.title
@@ -44,7 +44,10 @@ const News = () => {
           styles.containerStyle,
           {backgroundColor: themeContext.theme.backgroundColor},
         ]}>
-        <SearchBar onInputChange={searchFilterFunction} />
+        <SearchBar
+          onInputChange={searchFilterFunction}
+          qvalue={route?.params?.value}
+        />
 
         {isLoading ? (
           <Loading />
