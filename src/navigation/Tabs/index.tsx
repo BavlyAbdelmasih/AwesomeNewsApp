@@ -19,7 +19,15 @@ function Tabs() {
       screenOptions={{
         headerShown: false,
         tabBarShowLabel: false,
-        tabBarStyle: {backgroundColor: themeContext.theme.backgroundColor},
+        tabBarStyle: {
+          backgroundColor: themeContext.theme.secondaryColor,
+          position: 'absolute',
+          elevation: 0,
+          right: 0,
+          left: 0,
+          bottom: 0,
+          height: 80,
+        },
       }}>
       <Tab.Screen
         name="NewsStack"
