@@ -3,6 +3,7 @@ import React, {useContext, useState} from 'react';
 import {ThemeContext} from '../../../Theming/ThemeContextProvider';
 import {useTranslation} from 'react-i18next';
 import '../../i18n/i18n';
+import styles from './styles';
 
 const Settings = () => {
   const [isEnabled, setIsEnabled] = useState<boolean>(false);
@@ -23,14 +24,13 @@ const Settings = () => {
     return (
       <Pressable
         onPress={() => changeLanguage(language)}
-        style={{
-          backgroundColor: language == currentLanguage ? '#33A850' : '#d3d3d3',
-          width: 150,
-          height: 70,
-          margin: 10,
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
+        style={[
+          styles.LanguageButton,
+          {
+            backgroundColor:
+              language == currentLanguage ? '#33A850' : '#d3d3d3',
+          },
+        ]}>
         <Text>{title}</Text>
       </Pressable>
     );
@@ -42,6 +42,9 @@ const Settings = () => {
         styles.container,
         {backgroundColor: themeContext.theme.backgroundColor},
       ]}>
+      <Text style={{color: isEnabled ? 'yellow' : 'black'}}>
+        {!isEnabled ? 'Light Mode is On' : 'Dark Mode is On'}
+      </Text>
       <Switch
         trackColor={{false: '#767577', true: 'green'}}
         thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
@@ -62,11 +65,3 @@ const Settings = () => {
 };
 
 export default Settings;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
