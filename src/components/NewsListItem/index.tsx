@@ -10,6 +10,7 @@ import styles from './styles';
 import {NewsItem} from '../../types';
 import FastImage from 'react-native-fast-image';
 import {ThemeContext} from '../../Theming/ThemeContextProvider';
+import {calculateNumberOfHoursElapsedFromNow} from '../../utilities/timeCalculator';
 
 interface Props {
   item: NewsItem;
@@ -35,7 +36,7 @@ const NewsListItem = ({item, onClick}: Props) => {
           </Text>
 
           <Text style={[styles.time, {color: themeContext.theme.textColor}]}>
-            {item.publishedAt}
+            {calculateNumberOfHoursElapsedFromNow(item.publishedAt)} hours ago
           </Text>
         </View>
       </FastImage>

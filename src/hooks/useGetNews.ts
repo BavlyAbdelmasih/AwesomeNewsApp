@@ -7,6 +7,7 @@ const useGetNews = () => {
   const [data, setData] = useState<NewsItem[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [refreshing, setRefreshing] = useState<boolean>(false);
+  const [category, setCategory] = useState<string>('ae');
 
   const fetchNews = useCallback(
     async (
@@ -15,7 +16,7 @@ const useGetNews = () => {
       onFinish: () => void,
     ) => {
       try {
-        const response = await getNewList();
+        const response = await getNewList(category);
         onSucess(response.data.articles);
       } catch (error) {
         onError(error);
@@ -24,7 +25,7 @@ const useGetNews = () => {
         onFinish();
       }
     },
-    [data, refreshing],
+    [data, refreshing, category],
   );
   useEffect(() => {
     fetchNews(
@@ -43,7 +44,7 @@ const useGetNews = () => {
     return () => {
       setData([]);
     };
-  }, []);
+  }, [category]);
 
   const onRefresh = () => {
     fetchNews(
@@ -60,7 +61,7 @@ const useGetNews = () => {
     );
   };
 
-  return {data, isLoading, refreshing, onRefresh};
+  return {data, isLoading, refreshing, onRefresh, setCategory, category};
 };
 
 export default useGetNews;

@@ -1,5 +1,5 @@
-import {View, FlatList, RefreshControl} from 'react-native';
-import React, {useState, useEffect, useContext} from 'react';
+import {View, FlatList, RefreshControl, Button} from 'react-native';
+import React, {useState, useEffect, useContext, ReactNode} from 'react';
 import NewsListItem from '../../components/NewsListItem';
 
 import useGetNews from '../../hooks/useGetNews';
@@ -10,15 +10,20 @@ import {useNavigation} from '@react-navigation/native';
 import {ThemeContext} from '../../Theming/ThemeContextProvider';
 import {NewsItem} from '../../types';
 import EmptyList from '../../components/EmptyList';
+import {countries} from '../../constants/constants';
+import CategoryItem from '../../components/CategoryItem';
+import {ScrollView} from 'react-native-gesture-handler';
 
 const News = ({route}: any) => {
-  const {data, isLoading, refreshing, onRefresh} = useGetNews();
+  const {data, isLoading, refreshing, onRefresh, setCategory, category} =
+    useGetNews();
   const [filteredData, setFilteredData] = useState<NewsItem[]>([]);
   const navigator = useNavigation();
   const themeContext = useContext(ThemeContext);
 
   useEffect(() => {
     setFilteredData(data);
+    console.log(category);
   }, [data]);
 
   //searching function
@@ -49,6 +54,24 @@ const News = ({route}: any) => {
           onInputChange={searchFilterFunction}
           qvalue={route?.params?.value}
         />
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          style={{
+            paddingBottom: 10,
+            marginHorizontal: 10,
+          }}>
+          {countries.map((element, index) => {
+            return (
+              <CategoryItem
+                key={index}
+                name={element}
+                selectedCategory={category}
+                onPress={() => setCategory(element)}
+              />
+            );
+          })}
+        </ScrollView>
 
         <FlatList
           keyExtractor={item => `${Math.random()}${item.source.id}`}
