@@ -15,7 +15,7 @@ const config = {
   },
 };
 
-const linking: LinkingOptions<any> = {
+const linking: any = {
   prefixes: ['AwesomeNewsApp://app'],
   config,
 };
