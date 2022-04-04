@@ -1,13 +1,14 @@
 import {useCallback, useEffect, useState} from 'react';
 import getNewList from '../services/api/getNewsList';
 import {NewsItem} from '../types';
+import {handleApiErrors} from '../utilities/handleApiErrors';
 
 const useGetNews = () => {
   const [data, setData] = useState<NewsItem[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [refreshing, setRefreshing] = useState<boolean>(false);
 
-  const fetchData = useCallback(
+  const fetchNews = useCallback(
     async (
       onSucess: (data: NewsItem[]) => void,
       onError: (error: any) => void,
@@ -18,6 +19,7 @@ const useGetNews = () => {
         onSucess(response.data.articles);
       } catch (error) {
         onError(error);
+        handleApiErrors(error);
       } finally {
         onFinish();
       }
@@ -25,7 +27,7 @@ const useGetNews = () => {
     [data, refreshing],
   );
   useEffect(() => {
-    fetchData(
+    fetchNews(
       data => {
         setData(data);
         setIsLoading(true);
@@ -44,7 +46,7 @@ const useGetNews = () => {
   }, []);
 
   const onRefresh = () => {
-    fetchData(
+    fetchNews(
       data => {
         setData(data);
         setRefreshing(true);
