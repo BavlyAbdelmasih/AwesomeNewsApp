@@ -9,6 +9,7 @@ import styles from './styles';
 import {useNavigation} from '@react-navigation/native';
 import {ThemeContext} from '../../Theming/ThemeContextProvider';
 import {NewsItem} from '../../types';
+import EmptyList from '../../components/EmptyList';
 
 const News = ({route}: any) => {
   const {data, isLoading, refreshing, onRefresh} = useGetNews();
@@ -49,27 +50,24 @@ const News = ({route}: any) => {
           qvalue={route?.params?.value}
         />
 
-        {isLoading ? (
-          <Loading />
-        ) : (
-          <FlatList
-            keyExtractor={item => `${Math.random()}${item.source.id}`}
-            data={filteredData}
-            renderItem={item => {
-              return (
-                <NewsListItem
-                  item={item.item}
-                  onClick={() => {
-                    navigator.navigate('Details', {item});
-                  }}
-                />
-              );
-            }}
-            refreshControl={
-              <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-            }
-          />
-        )}
+        <FlatList
+          keyExtractor={item => `${Math.random()}${item.source.id}`}
+          ListEmptyComponent={<EmptyList loading={isLoading} />}
+          data={filteredData}
+          renderItem={item => {
+            return (
+              <NewsListItem
+                item={item.item}
+                onClick={() => {
+                  navigator.navigate('Details', {item});
+                }}
+              />
+            );
+          }}
+          refreshControl={
+            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+          }
+        />
       </View>
     );
   }
