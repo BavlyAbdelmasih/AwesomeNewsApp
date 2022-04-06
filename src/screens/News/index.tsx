@@ -1,9 +1,8 @@
-import {View, FlatList, RefreshControl, Button} from 'react-native';
-import React, {useState, useEffect, useContext, ReactNode} from 'react';
+import {View, FlatList, RefreshControl} from 'react-native';
+import React, {useState, useEffect, useContext} from 'react';
 import NewsListItem from '../../components/NewsListItem';
 
 import useGetNews from '../../hooks/useGetNews';
-import Loading from '../../components/Loading';
 import SearchBar from '../../components/SearchBar';
 import styles from './styles';
 import {useNavigation} from '@react-navigation/native';
@@ -12,7 +11,6 @@ import {NewsItem} from '../../types';
 import EmptyList from '../../components/EmptyList';
 import {countries} from '../../constants/constants';
 import CategoryItem from '../../components/CategoryItem';
-import {ScrollView} from 'react-native-gesture-handler';
 
 const News = ({route}: any) => {
   const {data, isLoading, refreshing, onRefresh, setCategory, category} =
@@ -23,19 +21,19 @@ const News = ({route}: any) => {
 
   useEffect(() => {
     setFilteredData(data);
-    console.log(category);
+    return () => {
+      setFilteredData([]);
+    };
   }, [data]);
 
   //searching function
   const searchFilterFunction = (value: string) => {
-    console.log(value);
     if (value) {
       const newData = data?.filter(item => {
-        const itemData = item.title
-          ? item.title.toUpperCase()
-          : ''.toUpperCase();
-        const textData = value.toUpperCase();
-        return itemData.indexOf(textData) > -1;
+        return item.title
+          .toLowerCase()
+          .trim()
+          .includes(value.toLowerCase().trim());
       });
       setFilteredData(newData);
     } else {
@@ -54,24 +52,22 @@ const News = ({route}: any) => {
           onInputChange={searchFilterFunction}
           qvalue={route?.params?.value}
         />
-        <ScrollView
+
+        <FlatList
           horizontal
           showsHorizontalScrollIndicator={false}
-          style={{
-            paddingBottom: 10,
-            marginHorizontal: 10,
-          }}>
-          {countries.map((element, index) => {
+          data={countries}
+          style={{marginHorizontal: 10, paddingBottom: 30}}
+          renderItem={element => {
             return (
               <CategoryItem
-                key={index}
-                name={element}
+                name={element.item}
                 selectedCategory={category}
-                onPress={() => setCategory(element)}
+                onPress={() => setCategory(element.item)}
               />
             );
-          })}
-        </ScrollView>
+          }}
+        />
 
         <FlatList
           keyExtractor={item => `${Math.random()}${item.source.id}`}

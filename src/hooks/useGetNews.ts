@@ -7,7 +7,7 @@ const useGetNews = () => {
   const [data, setData] = useState<NewsItem[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [refreshing, setRefreshing] = useState<boolean>(false);
-  const [category, setCategory] = useState<string>('ae');
+  const [category, setCategory] = useState<string>('us');
 
   const fetchNews = useCallback(
     async (

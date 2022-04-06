@@ -1,10 +1,4 @@
-import {
-  View,
-  Text,
-  ImageBackground,
-  ImagePropTypes,
-  TouchableOpacity,
-} from 'react-native';
+import {View, Text, TouchableOpacity} from 'react-native';
 import React, {useContext} from 'react';
 import styles from './styles';
 import {NewsItem} from '../../types';
