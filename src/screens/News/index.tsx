@@ -25,7 +25,7 @@ const News = ({route}: any) => {
     return () => {
       setFilteredData([]);
     };
-  }, [category]);
+  }, [data]);
 
   //searching function
   const searchFilterFunction = (value: string) => {
