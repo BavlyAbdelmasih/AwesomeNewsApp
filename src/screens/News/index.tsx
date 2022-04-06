@@ -9,14 +9,15 @@ import {useNavigation} from '@react-navigation/native';
 import {ThemeContext} from '../../Theming/ThemeContextProvider';
 import {NewsItem} from '../../types';
 import EmptyList from '../../components/EmptyList';
-import {countries} from '../../constants/constants';
+import {countries, screens} from '../../constants/constants';
 import CategoryItem from '../../components/CategoryItem';
+import {StackHeaderProps, StackNavigationProp} from '@react-navigation/stack';
 
 const News = ({route}: any) => {
   const {data, isLoading, refreshing, onRefresh, setCategory, category} =
     useGetNews();
   const [filteredData, setFilteredData] = useState<NewsItem[]>([]);
-  const navigator = useNavigation();
+  const navigator = useNavigation<StackNavigationProp<any>>();
   const themeContext = useContext(ThemeContext);
 
   useEffect(() => {
@@ -24,7 +25,7 @@ const News = ({route}: any) => {
     return () => {
       setFilteredData([]);
     };
-  }, [data]);
+  }, [category]);
 
   //searching function
   const searchFilterFunction = (value: string) => {
@@ -78,7 +79,7 @@ const News = ({route}: any) => {
               <NewsListItem
                 item={item.item}
                 onClick={() => {
-                  navigator.navigate('Details', {item});
+                  navigator.navigate(screens.Details, item);
                 }}
               />
             );

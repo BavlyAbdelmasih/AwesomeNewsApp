@@ -66,3 +66,8 @@ export const countries = [
   'ua',
   'us',
 ];
+
+export const screens = {
+  News: 'Home',
+  Details: 'Details',
+};
